@@ -1,3 +1,3 @@
 # leetcode
 
-Un-optimized leetcode problem solutions
+Generally un-optimized leetcode problem solutions
