@@ -1,2 +1,5 @@
 # editor metadata
 .DS_Store
+
+# personal proof code
+.env
