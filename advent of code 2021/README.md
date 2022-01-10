@@ -1,3 +1,3 @@
-# advent of code
+# advent of code 2021
 
-Generally unoptimized Advent of Code solutions
+Generally unoptimized Advent of Code 2021 solutions
