@@ -3,3 +3,6 @@
 
 # java files
 *.class
+
+# question lists
+/oa questions
