@@ -1,6 +1,6 @@
-import java.util.HashMap;
-
 //https://leetcode.com/problems/contains-duplicate/
+
+import java.util.HashMap;
 
 class Solution {
     //Hashmap worked faster than ArrayList even though theres no value pairing
