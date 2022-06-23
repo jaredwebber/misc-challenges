@@ -4,17 +4,17 @@ import java.util.Arrays;
 
 class Solution {
     public int coinChange(int[] coins, int amount) {
-        int[] dp = new int[amount+1];
-        Arrays.fill(dp, amount+1);
+        int[] sums = new int[amount+1];
         
-        dp[0] = 0;
+        Arrays.fill(sums, amount+1);
+        sums[0] = 0;
+        
         for(int i = 1; i<=amount; i++){
-            for(int c:coins){
-                int index = i-c;
-                if(index >= 0) dp[i] = Math.min(dp[index]+1, dp[i]);
+            for(int j:coins){
+                if(i-j >= 0) sums[i] = Math.min(sums[i-j]+1, sums[i]);
             }
         }
-        
-        return dp[amount] != amount+1? dp[amount] : -1;
+                
+        return sums[amount] != amount+1 ? sums[amount] : -1;
     }
 }
