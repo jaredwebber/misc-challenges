@@ -2,15 +2,16 @@
 
 class Solution {
     public int search(int[] nums, int target) {
-        int lo = 0;
-        int hi = nums.length-1;
-
-        while(lo<=hi){
-            int mid = lo + (hi-lo)/2;
-            if(nums[mid] == target) return mid;
-            if(nums[mid]>target) hi = mid-1;
-            else lo = mid+1;
+        int left = 0;
+        int right = nums.length-1;
+        
+        while(left <= right){
+            // Emulated 'mid' pointer for slight space efficiency increase
+            if(nums[(left+right)/2] == target) return (left+right)/2;
+            else if(nums[(left+right)/2] > target) right = ((left+right)/2)-1;
+            else left = ((left+right)/2)+1;
         }
+        
         return -1;
     }
 }
