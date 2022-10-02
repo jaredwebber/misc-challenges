@@ -1,9 +1,7 @@
 //https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-/* Two Different Approaches */
-
 class Solution {
-    //provided node class
+    // Provided TreeNode class
     class TreeNode {
         int val;
         TreeNode left;
@@ -18,39 +16,14 @@ class Solution {
     }
 
     public int maxDepth(TreeNode root) {
-        return root!=null ? search(root, 1) : 0;
+        return searchMax(root, 0);
     }
     
-    private int search(TreeNode curr, int depth){
-        if(curr == null) return Integer.MIN_VALUE;
-        if(curr.left == null && curr.right == null) return depth;
-        
-        return Math.max(search(curr.left, depth+1), search(curr.right, depth+1));
-    }
-}
-
-/*
-class Solution {
-    public int maxDepth(TreeNode root) {
-        if(root==null) return 0;
-        return depth(root)+1;
-    }
-    
-    private int depth(TreeNode node){
-        int left = 0;
-        int right = 0;
-        
-        if(node!=null){
-            if(node.left!=null){
-                left++;
-            }
-            if(node.right!=null){
-                right++;
-            }
-            left+=depth(node.left);
-            right+=depth(node.right);
+    private int searchMax(TreeNode curr, int depth){
+        if(curr != null){
+            int max = Math.max(searchMax(curr.left, depth+1), searchMax(curr.right, depth+1));
+            return max;
         }
-        return Math.max(right,left);
+        return depth;
     }
 }
-*/
