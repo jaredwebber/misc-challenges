@@ -11,7 +11,7 @@ Find the top three Elves carrying the most Calories. How many Calories are those
 
 """
 
-file = open("day_one/input.txt", "r")
+file = open("day_1/input.txt", "r")
 
 vals = [0, 0, 0]
 count = 0

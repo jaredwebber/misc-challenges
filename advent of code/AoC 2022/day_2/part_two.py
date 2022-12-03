@@ -13,7 +13,7 @@ Now that you're correctly decrypting the ultra top secret strategy guide, you wo
 Following the Elf's instructions for the second column, what would your total score be if everything goes exactly according to your strategy guide?
 """
 
-file = open("day_two/input.txt", "r")
+file = open("day_2/input.txt", "r")
 
 line = file.readline()
 score = 0

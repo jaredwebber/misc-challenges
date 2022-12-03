@@ -28,7 +28,7 @@ In this example, if you were to follow the strategy guide, you would get a total
 What would your total score be if everything goes exactly according to your strategy guide?
 """
 
-file = open("day_two/input.txt", "r")
+file = open("day_2/input.txt", "r")
 
 line = file.readline()
 score = 0

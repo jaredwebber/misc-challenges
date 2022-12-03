@@ -38,7 +38,7 @@ In case the Elves get hungry and need extra snacks, they need to know which Elf 
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 """
-file = open("day_one/input.txt", "r")
+file = open("day_1/input.txt", "r")
 
 maximum = 0
 count = 0
