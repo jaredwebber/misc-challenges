@@ -4,15 +4,20 @@ if __name__ == "__main__":
     cycle = 0
     cycle_advance = 0
     x = 1
-    sum = 0
+    output = ""
     ops = {}
+    offset = 0
 
-    while cycle <= cycle_advance:
+    while cycle <= cycle_advance and cycle < 240:
         line = file.readline()
         split_line = line.strip().split(" ")
 
         if cycle in ops:
             x += ops[cycle]
+
+        if cycle in [40, 80, 120, 160, 200, 240, 280]:
+            output += "\n"
+            offset += 40
 
         if split_line != [""]:
             if split_line[0] == "noop":
@@ -21,10 +26,13 @@ if __name__ == "__main__":
                 ops[cycle_advance + 2] = int(split_line[1])
                 cycle_advance += 2
 
-        cycle += 1
-        if cycle in [20, 60, 100, 140, 180, 220, 260, 300, 340, 380, 420, 460, 500]:
-            sum += x * cycle
+        if cycle - offset + 1 == x or cycle - offset == x or cycle - offset - 1 == x:
+            output += "#"
+        else:
+            output += "."
 
-    print(sum)
+        cycle += 1
+
+    print(output)
 
     file.close()
