@@ -1,6 +1,6 @@
 from collections import deque
 
-file = open("day-5/input.txt", "r")
+file = open("day_05/input.txt", "r")
 
 stacks = []
 read_stacks = True
@@ -35,12 +35,19 @@ for line in file:
         source = int(split_line[3]) - 1
         dest = int(split_line[5]) - 1
 
+        append = []
         for i in range(quantity):
-            stacks[dest].appendleft(stacks[source].popleft())
+            append.append(stacks[source].popleft())
+
+        append.reverse()
+
+        for item in append:
+            stacks[dest].appendleft(item)
 
 final_order = ""
 for stack in stacks:
-    final_order += stack.popleft()
+    if len(stack) > 0 and stack is not None:
+        final_order += stack.popleft()
 
 print(final_order)
 

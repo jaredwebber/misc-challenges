@@ -1,33 +1,30 @@
-file = open("day-2/input.txt", "r")
+file = open("day_02/input.txt", "r")
 
 line = file.readline()
 score = 0
-ROCK = 1
-PAPER = 2
-SCISSORS = 3
 
 while line:
     if line[0] == "A":
         if line[2] == "X":
-            score += SCISSORS + 0
+            score += 1 + 3
         elif line[2] == "Y":
-            score += ROCK + 3
+            score += 2 + 6
         else:
-            score += PAPER + 6
+            score += 3 + 0
     elif line[0] == "B":
         if line[2] == "X":
-            score += ROCK + 0
+            score += 1 + 0
         elif line[2] == "Y":
-            score += PAPER + 3
+            score += 2 + 3
         else:
-            score += SCISSORS + 6
+            score += 3 + 6
     else:
         if line[2] == "X":
-            score += PAPER + 0
+            score += 1 + 6
         elif line[2] == "Y":
-            score += SCISSORS + 3
+            score += 2 + 0
         else:
-            score += ROCK + 6
+            score += 3 + 3
     line = file.readline()
 
 print(score)

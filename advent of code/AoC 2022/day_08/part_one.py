@@ -36,7 +36,7 @@ if __name__ == "__main__":
             col += 1
         return True
 
-    file = open("day-8/input.txt", "r")
+    file = open("day_08/input.txt", "r")
 
     grid = []
 
@@ -106,7 +106,7 @@ from pprint import pprint
 
 
 if __name__ == "__main__":
-    file = open("day-8/input.txt", "r")
+    file = open("day_08/input.txt", "r")
 
     grid = []
 

@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
         tail_visited.add(tuple(tail_coords))
 
-    file = open("day-9/input.txt", "r")
+    file = open("day_09/input.txt", "r")
 
     tail_visited = set()  # set of coordinates
     head_coords = [0, 0]

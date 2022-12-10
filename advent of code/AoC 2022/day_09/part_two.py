@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
         tail_visited.add(tuple(rope[9]))
 
-    file = open("day-9/input.txt", "r")
+    file = open("day_09/input.txt", "r")
 
     tail_visited = set()  # set of coordinates
     rope = [

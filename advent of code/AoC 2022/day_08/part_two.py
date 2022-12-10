@@ -52,7 +52,7 @@ if __name__ == "__main__":
             * count_visible_from_right(row, col)
         )
 
-    file = open("day-8/input.txt", "r")
+    file = open("day_08/input.txt", "r")
 
     grid = []
 

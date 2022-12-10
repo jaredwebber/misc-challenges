@@ -1,4 +1,4 @@
-file = open("day-1/input.txt", "r")
+file = open("day_01/input.txt", "r")
 
 maximum = 0
 count = 0

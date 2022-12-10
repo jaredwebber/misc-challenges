@@ -1,4 +1,4 @@
-file = open("day-4/input.txt", "r")
+file = open("day_04/input.txt", "r")
 
 line = file.readline()
 count = 0
@@ -10,7 +10,11 @@ while line:
     second_nums = [int(split_line[1].split("-")[0]), int(split_line[1].split("-")[1])]
 
     if (
-        first_nums[0] <= second_nums[0]
+        first_nums[0] >= second_nums[0]
+        and first_nums[0] <= second_nums[1]
+        or second_nums[0] >= first_nums[0]
+        and second_nums[0] <= first_nums[1]
+        or first_nums[0] <= second_nums[0]
         and first_nums[1] >= second_nums[1]
         or second_nums[0] <= first_nums[0]
         and second_nums[1] >= first_nums[1]
