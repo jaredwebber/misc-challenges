@@ -1,4 +1,4 @@
-file = open("day_4/input.txt", "r")
+file = open("day-4/input.txt", "r")
 
 line = file.readline()
 count = 0

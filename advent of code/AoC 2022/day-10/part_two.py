@@ -1,6 +1,6 @@
 if __name__ == "__main__":
 
-    file = open("day_10/input.txt", "r")
+    file = open("day-10/input.txt", "r")
     cycle = 0
     cycle_advance = 0
     x = 1

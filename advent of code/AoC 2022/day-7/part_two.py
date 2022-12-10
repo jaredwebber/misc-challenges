@@ -2,7 +2,7 @@ import sys
 
 
 def process() -> None:
-    file = open("day_7/input.txt", "r")
+    file = open("day-7/input.txt", "r")
 
     line = file.readline()
     directories = {}

@@ -1,4 +1,4 @@
-file = open("day_2/input.txt", "r")
+file = open("day-2/input.txt", "r")
 
 line = file.readline()
 score = 0

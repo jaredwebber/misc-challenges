@@ -1,6 +1,6 @@
 from collections import deque
 
-file = open("day_5/input.txt", "r")
+file = open("day-5/input.txt", "r")
 
 stacks = []
 read_stacks = True
