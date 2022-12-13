@@ -47,9 +47,9 @@ class Process:
                     ]
                 )
 
-        # prioritize distance over elevation (currently)
-        moves = sorted(move_list, key=operator.itemgetter(2))
-        moves = sorted(moves, key=operator.itemgetter(1))
+        # prioritize elevation, then distance to end
+        moves = sorted(move_list, key=operator.itemgetter(1))
+        moves = sorted(moves, key=operator.itemgetter(2))
 
         positions = []
         for move in moves:
@@ -59,8 +59,6 @@ class Process:
 
     def traverse(self, curr, end, steps):
         self.visited.add((curr[0], curr[1]))
-        print(str(steps) + ", min: " + str(self.min_steps) + ", " + str(curr))
-        print("unique pos visited: " + str(len(self.visited)))
 
         if curr == end:
             if steps < self.min_steps:
@@ -80,7 +78,7 @@ class Process:
         self.grid[curr[0]][curr[1]] = curr_val
 
     def startup(self):
-        file = open("input.txt", "r")
+        file = open("day_12/input.txt", "r")
 
         start = []
         end = []
@@ -98,9 +96,7 @@ class Process:
                 else:
                     self.grid[len(self.grid) - 1].append(ord(char))
 
-        # maybe block out starting index?
         self.traverse(start, end, 0)
-        print(self.grid)
 
         print(self.min_steps)
         file.close()
