@@ -9,7 +9,6 @@ class Solution:
 
         while left < right:
             mid = int((right + left) / 2)
-            print(str(left) + ", " + str(mid) + ", " + str(right))
             if target == nums[mid]:
                 return mid
             if nums[left] < nums[right]:
