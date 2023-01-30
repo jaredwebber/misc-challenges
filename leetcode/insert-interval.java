@@ -1,5 +1,7 @@
 //https://leetcode.com/problems/insert-interval/
 
+import java.util.ArrayList;
+
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         int[][] outArrays = null;
