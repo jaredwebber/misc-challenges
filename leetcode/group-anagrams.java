@@ -4,31 +4,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String, List<String>> groups = new HashMap<String, List<String>>();
-        
-        for(int i = 0; i<strs.length; i++){
-            char[] hashArr = strs[i].toCharArray();
-            Arrays.sort(hashArr);
-            String hash = new String(hashArr);
-            
-            List<String> group = groups.get(hash);
-            if(group == null){
-                group = new ArrayList<String>();
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        List<List<String>> groups = new ArrayList<List<String>>();
+
+        for (String i : strs) {
+            char[] str = i.toCharArray();
+            Arrays.sort(str);
+            String key = new String(str);
+            Integer index = map.get(key);
+            if (index != null) {
+                groups.get(index).add(i);
+            } else {
+                map.put(key, groups.size());
+                List<String> list = new ArrayList<String>();
+                list.add(i);
+                groups.add(list);
             }
-            
-            group.add(strs[i]);
-            groups.put(hash, group);
         }
-        
-        List<List<String>> output = new ArrayList<List<String>>();
-        for(String i: groups.keySet()){
-            
-            output.add(groups.get(i));
-        }
-        
-        return output;
+
+        return groups;
     }
 }
