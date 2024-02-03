@@ -1,13 +1,21 @@
 # https://leetcode.com/problems/contains-duplicate/description/
 
-from typing import List
-
 
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        bruh: set[int] = set()
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        seen: set[int] = set()
         for i in nums:
-            if i in bruh:
+            if i in seen:
                 return True
-            bruh.add(i)
+            seen.add(i)
+        return False
+
+
+class SolutionTwo:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        seen: dict[int, bool] = {}
+        for i in nums:
+            if seen.get(i):
+                return True
+            seen[i] = True
         return False
