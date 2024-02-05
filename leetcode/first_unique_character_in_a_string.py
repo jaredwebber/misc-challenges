@@ -14,3 +14,17 @@ class Solution:
             if v >= 0:
                 return v
         return -1
+
+
+class SolutionTwo:
+    def firstUniqChar(self, s: str) -> int:
+        unique: dict[str, int] = {}
+
+        for index, char in enumerate(s):
+            unique[char] = index if unique.get(char) is None else -1
+
+        for i in s:
+            if unique[i] != -1:
+                return unique[i]
+
+        return -1
