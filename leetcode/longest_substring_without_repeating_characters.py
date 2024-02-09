@@ -8,9 +8,10 @@ class Solution:
         start: int = 0
 
         for index, char in enumerate(s):
-            if last_seen.get(char) is not None and last_seen.get(char) >= start:
+            seen = last_seen.get(char)
+            if seen is not None and seen >= start:
                 longest = max(longest, index - start)
-                start = last_seen.get(char) + 1
+                start = seen + 1
             last_seen[char] = index
 
         return max(longest, len(s) - start)
