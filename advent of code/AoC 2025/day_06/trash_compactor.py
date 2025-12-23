@@ -33,52 +33,42 @@ def part_one() -> None:
 # part_one()
 
 
-# this doesnt work - theres both right and left offsets
-# need to include spaces to figure out the digit index
-
-# just read into grid and then parse the grid?
-
-
 def part_two() -> None:
     operators = lines[-1].split()
 
     numbers = [[] for _ in range(len(operators))]
-    print(numbers)
 
-    for line in lines[0 : len(lines) - 1]:
-        for index, num in enumerate(line.split()):
-            for i, val in enumerate(reversed(num)):
-                if len(num) > len(numbers[index]):
-                    temp_index = 0
-                    while temp_index < len(num):
-                        numbers[index].insert(0, "")
-                        temp_index += 1
+    column_widths = []
+    last_index = 0
+    for index, value in enumerate(lines[-1][1:]):
+        if value in ops:
+            column_widths.append(index - last_index)
+            last_index = index + 1
 
-                digit_index = len(numbers[index]) - i - 1
-                # need to fix when digitIndex is negative
+    column_widths.append(len(lines[0]) - last_index)
 
-                print(i)
-                print(val)
-                print(digit_index)
-                print()
+    for i, val in enumerate(column_widths):
+        for _ in range(val):
+            numbers[i].append("0")
 
-                # print(len(numbers[index]))
-                # print(digit_index)
+    for line in lines[:-1]:
+        index = 0
+        for column, val in enumerate(column_widths):
+            for i in range(val):
+                numbers[column][i] += line[index] if line[index].isalnum() else ""
+                index += 1
+            index += 1
 
-                print(numbers)
-                numbers[index][digit_index] += str(val)
+    total_sum = 0
+    for i in range(len(numbers)):
+        sub_calc = 0 if ops[operators[i]] is operator.add else 1
 
-                print(numbers)
-            print()
+        for j in numbers[i]:
+            sub_calc = ops[operators[i]](int(j), sub_calc)
 
+        total_sum += sub_calc
 
-# 123 328  51 64
-# 45 64  387 23
-#  6 98  215 314
-
-# [1, 2, 3]
-# [1, 24, 35]
-# [1, 24, 356]
+    print(total_sum)
 
 
 part_two()
